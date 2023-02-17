@@ -20,6 +20,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import { mainListItems, secondaryListItems } from './listItems';
+import ECommerceTable from "./ECommerceTable";
 
 function Copyright(props) {
     return (
@@ -115,7 +116,7 @@ function DashboardContent() {
                             variant="h6"
                             color="inherit"
                             noWrap
-                            sx={{ flexGrow: 1 }}
+                            sx={{ flexGrow: 1}}
                         >
                             <h3>JK E-Commerce Shop <StorefrontIcon /></h3>
                         </Typography>
@@ -159,11 +160,11 @@ function DashboardContent() {
                     }}
                 >
                     <Toolbar />
-                    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+                    <Container maxWidth="lg" sx={{ mt: 8, mb: 4 }}>
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                                    {/*Insert Table here*/}
+                                    <ECommerceTable />
                                 </Paper>
                             </Grid>
                         </Grid>
