@@ -17,6 +17,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import {mainListItems} from './listItems';
 import ECommerceTable from "./ECommerceTable";
+import {Fab} from "@mui/material";
+import {FileUpload} from "@mui/icons-material";
 
 function Copyright(props) {
     return (
@@ -77,6 +79,15 @@ const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})
 );
 
 const mdTheme = createTheme();
+
+const buttonStyle = {
+    margin: 0,
+    top: 'auto',
+    right: 20,
+    bottom: 20,
+    left: 'auto',
+    position: 'fixed',
+};
 
 function DashboardContent() {
     const [open, setOpen] = React.useState(true);
@@ -158,7 +169,10 @@ function DashboardContent() {
                         <ECommerceTable/>
                         <Copyright sx={{pt: 4}}/>
                     </Container>
-
+                    <Fab variant="extended" size="medium" color="primary" aria-label="add" style={buttonStyle}>
+                        <FileUpload  sx={{ mr: 1 }} />
+                        Extended
+                    </Fab>
                 </Box>
             </Box>
         </ThemeProvider>
