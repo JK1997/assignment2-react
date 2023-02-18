@@ -55,19 +55,20 @@ function ECommerceTable() {
 
     return (
         <div style={{width: '100%'}}>
-            <Grid container spacing={3}>
-                <Grid item xs={2}>
+            <Grid container>
+                <Grid item xs={2} md={2}>
                     <Typography variant="h4">Orders</Typography>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={6} md={6}>
                 </Grid>
-                <Grid item xs={5}>
-                    <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                <Grid item xs={4} md={4}>
+                    <FormControl sx={{ m: 1}} variant="outlined">
                         <OutlinedInput
                             id="outlined-adornment-weight"
                             type="text"
                             value={filterRecords}
                             onChange={(e) => setFilterRecords(e.target.value)}
+                            onKeyUp={handleFilter}
                             placeholder="10000"
                             endAdornment={<InputAdornment position="end">/ {totalNumberOfECommerce}</InputAdornment>}
                             aria-describedby="outlined-weight-helper-text"
@@ -77,7 +78,6 @@ function ECommerceTable() {
                         />
                         <FormHelperText id="outlined-weight-helper-text">Filter number of records / Total</FormHelperText>
                     </FormControl>
-                    <button onClick={handleFilter}>Search</button>
                 </Grid>
             </Grid>
             <Grid container spacing={3}>
