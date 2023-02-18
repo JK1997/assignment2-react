@@ -26,9 +26,8 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
+            JK E-Commerce Shop
+            {' '}
             {new Date().getFullYear()}
             {'.'}
         </Typography>
@@ -118,7 +117,7 @@ function DashboardContent() {
                             noWrap
                             sx={{ flexGrow: 1}}
                         >
-                            <h3>JK E-Commerce Shop <StorefrontIcon /></h3>
+                            JK E-Commerce Shop <StorefrontIcon />
                         </Typography>
                         <IconButton color="inherit">
                             <Badge badgeContent={4} color="secondary">
@@ -170,6 +169,7 @@ function DashboardContent() {
                         </Grid>
                         <Copyright sx={{ pt: 4 }} />
                     </Container>
+
                 </Box>
             </Box>
         </ThemeProvider>
