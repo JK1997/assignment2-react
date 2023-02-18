@@ -2,19 +2,30 @@ import * as React from 'react';
 import {DataGrid} from '@mui/x-data-grid';
 import {useEffect, useState} from 'react';
 import apiService from "../apiService/APIService";
-import {CircularProgress, FormControl, FormHelperText, InputAdornment, OutlinedInput} from "@mui/material";
+import {
+    Accordion, AccordionDetails,
+    AccordionSummary,
+    CircularProgress,
+    FormControl,
+    FormHelperText,
+    InputAdornment,
+    OutlinedInput
+} from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 function ECommerceTable() {
     const [filterRecords, setFilterRecords] = useState("");
+    const [searchRecords, setSearchRecords] = useState("");
     const [ecommerceData, setEcommerceData] = useState([]);
 
     const handleFilter = () => {
         axios
-            .get(`http://localhost:8080/getAllECommerce?size=${filterRecords}`)
+            .get(`http://localhost:8080/getAllECommerce?searchQuery=${searchRecords}&size=${filterRecords}`)
             .then(response => setEcommerceData(response.data))
             .catch(error =>  console.error('Error fetching eCommerce data:', error));
     };
@@ -59,25 +70,51 @@ function ECommerceTable() {
                 <Grid item xs={2} md={2}>
                     <Typography variant="h4">Orders</Typography>
                 </Grid>
-                <Grid item xs={6} md={6}>
-                </Grid>
+                <Grid item xs={6} md={6}></Grid>
                 <Grid item xs={4} md={4}>
-                    <FormControl sx={{ m: 1}} variant="outlined">
-                        <OutlinedInput
-                            id="outlined-adornment-weight"
-                            type="text"
-                            value={filterRecords}
-                            onChange={(e) => setFilterRecords(e.target.value)}
-                            onKeyUp={handleFilter}
-                            placeholder="10000"
-                            endAdornment={<InputAdornment position="end">/ {totalNumberOfECommerce}</InputAdornment>}
-                            aria-describedby="outlined-weight-helper-text"
-                            inputProps={{
-                                'aria-label': 'weight',
-                            }}
-                        />
-                        <FormHelperText id="outlined-weight-helper-text">Filter number of records / Total</FormHelperText>
-                    </FormControl>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                            <Typography>Search and Filter</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <FormControl sx={{ m: 1}} variant="outlined">
+                                <OutlinedInput
+                                    id="search-records"
+                                    type="text"
+                                    value={searchRecords}
+                                    onChange={(e) => setSearchRecords(e.target.value)}
+                                    onKeyUp={handleFilter}
+                                    placeholder="GLASS"
+                                    endAdornment={<InputAdornment position="end"> </InputAdornment>}
+                                    aria-describedby="outlined-weight-helper-text"
+                                    inputProps={{
+                                        'aria-label': 'search',
+                                    }}
+                                />
+                                <FormHelperText id="outlined-weight-helper-text">Search records</FormHelperText>
+                            </FormControl>
+                            <FormControl sx={{ m: 1}} variant="outlined">
+                                <OutlinedInput
+                                    id="filter-records"
+                                    type="text"
+                                    value={filterRecords}
+                                    onChange={(e) => setFilterRecords(e.target.value)}
+                                    onKeyUp={handleFilter}
+                                    placeholder="10000"
+                                    endAdornment={<InputAdornment position="end">/ {totalNumberOfECommerce}</InputAdornment>}
+                                    aria-describedby="outlined-weight-helper-text"
+                                    inputProps={{
+                                        'aria-label': 'filter',
+                                    }}
+                                />
+                                <FormHelperText id="outlined-weight-helper-text">Filter number of records / Total</FormHelperText>
+                            </FormControl>
+                        </AccordionDetails>
+                    </Accordion>
                 </Grid>
             </Grid>
             <Grid container spacing={3}>
