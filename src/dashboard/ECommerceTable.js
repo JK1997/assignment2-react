@@ -16,6 +16,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import SearchIcon from '@mui/icons-material/Search';
 
 
 function ECommerceTable() {
@@ -70,15 +71,15 @@ function ECommerceTable() {
                 <Grid item xs={2} md={2}>
                     <Typography variant="h4">Orders</Typography>
                 </Grid>
-                <Grid item xs={6} md={6}></Grid>
-                <Grid item xs={4} md={4}>
+                <Grid item xs={7} md={7}></Grid>
+                <Grid item xs={3} md={3}>
                     <Accordion>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                            <Typography>Search and Filter</Typography>
+                            <SearchIcon /><Typography>Search and Filter</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <FormControl sx={{ m: 1}} variant="outlined">
@@ -111,7 +112,7 @@ function ECommerceTable() {
                                         'aria-label': 'filter',
                                     }}
                                 />
-                                <FormHelperText id="outlined-weight-helper-text">Filter number of records / Total</FormHelperText>
+                                <FormHelperText id="outlined-weight-helper-text">Filter number of records</FormHelperText>
                             </FormControl>
                         </AccordionDetails>
                     </Accordion>
