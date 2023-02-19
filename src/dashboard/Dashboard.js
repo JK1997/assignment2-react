@@ -182,7 +182,7 @@ function DashboardContent() {
                         }}
                     >
                         <Box sx={{ marginRight: "15%", display: 'flex' }}>
-                            <img src={JK_Ecommerce_logo} width="40px" />
+                            <img src={JK_Ecommerce_logo} width="40px" alt={"ShopLogo"}/>
                             <Typography variant="h5" sx={{ ml: 1, color: "#1976D2", fontFamily: 'Alfa Slab One', fontWeight: '700' }}>
                                 JK Shop
                             </Typography>

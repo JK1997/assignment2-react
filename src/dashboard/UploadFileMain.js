@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import {Fab, Menu, MenuItem} from "@mui/material";
+import {Menu, MenuItem} from "@mui/material";
 import ListItems from "./ListItems";
 import JK_Ecommerce_logo from '../assets/shop.png'
 import PersonIcon from '@mui/icons-material/Person';
@@ -172,7 +172,7 @@ function UploadFileMainContent() {
                         }}
                     >
                         <Box sx={{ marginRight: "15%", display: 'flex' }}>
-                            <img src={JK_Ecommerce_logo} width="40px" />
+                            <img src={JK_Ecommerce_logo} width="40px" alt={"Shop Logo"}/>
                             <Typography variant="h5" sx={{ ml: 1, color: "#1976D2", fontFamily: 'Alfa Slab One', fontWeight: '700' }}>
                                 JK Shop
                             </Typography>
