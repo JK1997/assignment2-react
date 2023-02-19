@@ -1,6 +1,52 @@
-# Getting Started with Create React App
+# Jun Kai E-Commerce Shop (GovTech Assignment 2) FE - React
+ 
+## Project Description
+
+Create a React frontend in Typescript and Spring Boot web backend in Kotlin with the
+following functionalities.
+1. Upload a CSV file with appropriate feedback to the user on the upload progress.
+2. List the data uploaded with pagination.
+3. Search data from the uploaded file.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+Please follow the instructions below on setting up this project locally.
+
+### Prerequisites
+
+Please ensure that you run both FE and BE applications concurrently.
+
+[https://github.com/Ong-Jun-Kai/assignment2-react.git](https://github.com/Ong-Jun-Kai/assignment2-react.git)
+
+[https://github.com/Ong-Jun-Kai/assignment2-kotlin.git](https://github.com/Ong-Jun-Kai/assignment2-kotlin.git)
+
+
+### Installation
+
+Please installing and setting up your app with the following steps:
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Ong-Jun-Kai/assignment2-react.git
+
+   ```
+
+2. Locate to project path, open a terminal and run `npm start`
+
+
+3. Open [http://localhost:3000/](http://localhost:3000/) and login with dummy credentials
+
+
+4. You should be able to see a list of data stored in a table
+
+
+5. Have fun on exploring features such as search, pagination and file upload
 
 ## Available Scripts
 
