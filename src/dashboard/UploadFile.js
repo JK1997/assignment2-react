@@ -33,7 +33,7 @@ const UploadFile = () => {
                     setProgress(percentCompleted);
                 }
             });
-
+            console.log(response);
             setMessage("Upload file successfully");
             setSelectedFile(undefined);
             setIsError(false);
