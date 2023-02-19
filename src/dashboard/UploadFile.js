@@ -9,7 +9,6 @@ const UploadFile = () => {
     // a local state to store the currently selected file.
     const [selectedFile, setSelectedFile] = useState(null);
     const [progress, setProgress] = useState(0);
-    const [isUploading, setIsUploading] = useState(false);
     const [message, setMessage] = useState("");
     const [isError, setIsError] = useState(false);
 
@@ -26,7 +25,6 @@ const UploadFile = () => {
         }
 
         setProgress(0);
-        setIsUploading(true);
 
         try {
             const response = await axios.post('http://localhost:8080/uploads', formData, {
@@ -35,7 +33,7 @@ const UploadFile = () => {
                     setProgress(percentCompleted);
                 }
             });
-            console.log(response);
+
             setMessage("Upload file successfully");
             setSelectedFile(undefined);
             setIsError(false);
@@ -46,9 +44,7 @@ const UploadFile = () => {
             setIsError(true);
         }
 
-        setIsUploading(false);
     }
-
 
     return (
         <div>
@@ -64,7 +60,12 @@ const UploadFile = () => {
                     Upload
                 </Button>
             </form>
-            {isUploading && <LinearProgress variant="determinate" value={progress} />}
+            {progress > 0 && progress < 100 && (
+                <Stack sx={{ width: '100%', mt: 2 }} spacing={2}>
+                    <LinearProgress variant="determinate" value={progress} />
+                    <div>{`Uploading: ${progress}%`}</div>
+                </Stack>
+            )}
             <Stack sx={{ width: '100%', mt:2}} spacing={2}>
                 {isError && <Alert severity={"error"}>{message}</Alert>}
                 {message==="Upload file successfully" && <Alert severity={"success"}>{message}</Alert>}
