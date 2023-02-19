@@ -15,10 +15,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import StorefrontIcon from '@mui/icons-material/Storefront';
-import {mainListItems} from './listItems';
 import ECommerceTable from "./ECommerceTable";
 import {Fab} from "@mui/material";
 import {FileUpload} from "@mui/icons-material";
+import ListItems from "./ListItems";
 
 function Copyright(props) {
     return (
@@ -148,7 +148,7 @@ function DashboardContent() {
                     </Toolbar>
                     <Divider/>
                     <List component="nav">
-                        {mainListItems}
+                        <ListItems />
                         <Divider sx={{my: 1}}/>
                     </List>
                 </Drawer>
@@ -171,14 +171,13 @@ function DashboardContent() {
                     </Container>
                     <Fab variant="extended" size="medium" color="primary" aria-label="add" style={buttonStyle}>
                         <FileUpload  sx={{ mr: 1 }} />
-                        Extended
+                        Upload File
                     </Fab>
                 </Box>
             </Box>
         </ThemeProvider>
     );
 }
-
 export default function Dashboard() {
     return <DashboardContent/>;
 }
