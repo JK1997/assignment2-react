@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {Alert, Stack} from "@mui/material";
+import {Alert, LinearProgress, Stack} from "@mui/material";
 import Button from "@mui/material/Button";
 import UploadIcon from '@mui/icons-material/Upload';
 
@@ -8,12 +8,12 @@ const UploadFile = () => {
     // a local state to store the currently selected file.
     const [selectedFile, setSelectedFile] = useState(null);
     const [progress, setProgress] = useState(0);
+    const [isUploading, setIsUploading] = useState(false);
     const [message, setMessage] = useState("");
     const [isError, setIsError] = useState(false);
 
     const handleFileSelect = (event) => {
         setSelectedFile(event.target.files[0])
-        console.log(selectedFile);
     }
 
     const handleSubmit = async (event) => {
@@ -25,9 +25,15 @@ const UploadFile = () => {
         }
 
         setProgress(0);
+        setIsUploading(true);
 
         try {
-            const response = await axios.post('http://localhost:8080/uploads', formData);
+            const response = await axios.post('http://localhost:8080/uploads', formData, {
+                onUploadProgress: (progressEvent) => {
+                    const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                    setProgress(percentCompleted);
+                }
+            });
             console.log(response);
             setMessage("Upload file successfully");
             setSelectedFile(undefined);
@@ -38,6 +44,8 @@ const UploadFile = () => {
             setMessage("Could not upload the file!");
             setIsError(true);
         }
+
+        setIsUploading(false);
     }
 
 
@@ -55,6 +63,7 @@ const UploadFile = () => {
                     Upload
                 </Button>
             </form>
+            {isUploading && <LinearProgress variant="determinate" value={progress} />}
             <Stack sx={{ width: '100%', mt:2}} spacing={2}>
                 {isError && <Alert severity={"error"}>{message}</Alert>}
                 {message==="Upload file successfully" && <Alert severity={"success"}>{message}</Alert>}
