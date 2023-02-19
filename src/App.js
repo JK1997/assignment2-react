@@ -3,6 +3,7 @@ import Dashboard from "./dashboard/Dashboard";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import UploadFile from "./dashboard/UploadFile";
+import Login from "./Login";
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
                     <Route
                         path='/'
                         exact
-                        element={<Dashboard/>}
+                        element={<Login/>}
                     />
                     <Route
                         path='/dashboard'
