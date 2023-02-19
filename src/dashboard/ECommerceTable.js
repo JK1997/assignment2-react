@@ -68,10 +68,7 @@ function ECommerceTable() {
     return (
         <div style={{width: '100%'}}>
             <Grid container>
-                <Grid item xs={2} md={2}>
-                    <Typography variant="h4">Orders</Typography>
-                </Grid>
-                <Grid item xs={7} md={7}></Grid>
+                <Grid item xs={9} md={9}></Grid>
                 <Grid item xs={3} md={3}>
                     <Accordion>
                         <AccordionSummary

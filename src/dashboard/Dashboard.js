@@ -14,11 +14,13 @@ import Container from '@mui/material/Container';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import StorefrontIcon from '@mui/icons-material/Storefront';
 import ECommerceTable from "./ECommerceTable";
-import {Fab} from "@mui/material";
+import {Fab, Menu, MenuItem} from "@mui/material";
 import {FileUpload} from "@mui/icons-material";
 import ListItems from "./ListItems";
+import JK_Ecommerce_logo from '../assets/shop.png'
+import PersonIcon from '@mui/icons-material/Person';
+import {useNavigate} from "react-router-dom";
 
 function Copyright(props) {
     return (
@@ -95,6 +97,22 @@ function DashboardContent() {
         setOpen(!open);
     };
 
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleMenu = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const navigate = useNavigate();
+
+    const Logout = () => {
+        navigate('/')
+    }
+
     return (
         <ThemeProvider theme={mdTheme}>
             <Box sx={{display: 'flex'}}>
@@ -122,15 +140,36 @@ function DashboardContent() {
                             variant="h6"
                             color="inherit"
                             noWrap
-                            sx={{flexGrow: 1}}
+                            sx={{flexGrow: 1, textAlign:'left'}}
                         >
-                            JK E-Commerce Shop <StorefrontIcon/>
+                            Dashboard
                         </Typography>
                         <IconButton color="inherit">
                             <Badge badgeContent={4} color="secondary">
                                 <NotificationsIcon/>
                             </Badge>
                         </IconButton>
+                        <IconButton color="inherit" onClick={handleMenu} size="large">
+                            <PersonIcon />
+                        </IconButton>
+                        <Menu
+                            id="menu-appbar"
+                            anchorEl={anchorEl}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <MenuItem onClick={handleClose}>Admin</MenuItem>
+                            <MenuItem onClick={Logout}>Logout</MenuItem>
+                        </Menu>
                     </Toolbar>
                 </AppBar>
                 <Drawer variant="permanent" open={open}>
@@ -142,6 +181,12 @@ function DashboardContent() {
                             px: [1],
                         }}
                     >
+                        <Box sx={{ marginRight: "15%", display: 'flex' }}>
+                            <img src={JK_Ecommerce_logo} width="40px" />
+                            <Typography variant="h5" sx={{ ml: 1, color: "#1976D2", fontFamily: 'Alfa Slab One', fontWeight: '700' }}>
+                                JK Shop
+                            </Typography>
+                        </Box>
                         <IconButton onClick={toggleDrawer}>
                             <ChevronLeftIcon/>
                         </IconButton>
