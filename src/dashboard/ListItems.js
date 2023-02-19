@@ -16,6 +16,10 @@ export default function ListItems() {
         navigate('/dashboard')
     }
 
+    const goToUploadFile = () => {
+        navigate('/uploadFile')
+    }
+
     return (
         <React.Fragment>
             <ListItemButton onClick={() => goToHome()}>
@@ -30,7 +34,7 @@ export default function ListItems() {
                 </ListItemIcon>
                 <ListItemText primary="Orders"/>
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton onClick={() => goToUploadFile()}>
                 <ListItemIcon>
                     <FileUploadIcon/>
                 </ListItemIcon>

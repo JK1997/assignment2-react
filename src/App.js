@@ -2,6 +2,7 @@ import './App.css';
 import Dashboard from "./dashboard/Dashboard";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
+import UploadFile from "./dashboard/UploadFile";
 
 
 function App() {
@@ -19,6 +20,11 @@ function App() {
                         path='/dashboard'
                         exact
                         element={<Dashboard/>}
+                    />
+                    <Route
+                        path='/uploadFile'
+                        exact
+                        element={<UploadFile/>}
                     />
                 </Routes>
             </BrowserRouter>
