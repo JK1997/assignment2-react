@@ -109,7 +109,7 @@ function ECommerceTable() {
                                         'aria-label': 'filter',
                                     }}
                                 />
-                                <FormHelperText id="outlined-weight-helper-text">Filter number of records</FormHelperText>
+                                <FormHelperText id="outlined-weight-helper-text">Filter total number of records</FormHelperText>
                             </FormControl>
                         </AccordionDetails>
                     </Accordion>

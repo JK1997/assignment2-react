@@ -5,10 +5,10 @@ import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import LayersIcon from '@mui/icons-material/Layers';
 import {useNavigate} from "react-router-dom";
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import Divider from "@mui/material/Divider";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function ListItems() {
     const navigate = useNavigate();
@@ -19,6 +19,10 @@ export default function ListItems() {
 
     const goToUploadFile = () => {
         navigate('/uploadFileMain')
+    }
+
+    const Logout = () => {
+        navigate('/')
     }
 
     return (
@@ -48,11 +52,11 @@ export default function ListItems() {
                 </ListItemIcon>
                 <ListItemText primary="Reports"/>
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton onClick={() => Logout()}>
                 <ListItemIcon>
-                    <LayersIcon/>
+                    <LogoutIcon/>
                 </ListItemIcon>
-                <ListItemText primary="Integrations"/>
+                <ListItemText primary="Logout"/>
             </ListItemButton>
         </React.Fragment>
     );

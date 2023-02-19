@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Alert, LinearProgress, Stack} from "@mui/material";
 import Button from "@mui/material/Button";
 import UploadIcon from '@mui/icons-material/Upload';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 const UploadFile = () => {
     // a local state to store the currently selected file.
@@ -52,7 +53,7 @@ const UploadFile = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <Button variant="contained" component="label" sx={{mt:4}}>
+                <Button variant="contained" component="label" startIcon={<AttachFileIcon />} sx={{mt:4}}>
                     Choose File
                     <input hidden accept="text/csv/*" multiple type="file" onChange={handleFileSelect}/>
                 </Button>

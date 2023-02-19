@@ -113,6 +113,10 @@ function DashboardContent() {
         navigate('/')
     }
 
+    const goToUploadFile = () => {
+        navigate('/uploadFileMain')
+    }
+
     return (
         <ThemeProvider theme={mdTheme}>
             <Box sx={{display: 'flex'}}>
@@ -213,7 +217,7 @@ function DashboardContent() {
                         <ECommerceTable/>
                         <Copyright sx={{pt: 4}}/>
                     </Container>
-                    <Fab variant="extended" size="medium" color="primary" aria-label="add" style={buttonStyle}>
+                    <Fab variant="extended" size="medium" color="primary" aria-label="add" style={buttonStyle} onClick={goToUploadFile}>
                         <FileUpload  sx={{ mr: 1 }} />
                         Upload File
                     </Fab>
