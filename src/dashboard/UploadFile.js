@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {Alert, Stack} from "@mui/material";
+import Button from "@mui/material/Button";
+import UploadIcon from '@mui/icons-material/Upload';
 
 const UploadFile = () => {
     // a local state to store the currently selected file.
@@ -11,6 +13,7 @@ const UploadFile = () => {
 
     const handleFileSelect = (event) => {
         setSelectedFile(event.target.files[0])
+        console.log(selectedFile);
     }
 
     const handleSubmit = async (event) => {
@@ -41,8 +44,16 @@ const UploadFile = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="file" onChange={handleFileSelect}/>
-                <input type="submit" value="Upload File"/>
+                <Button variant="contained" component="label" sx={{mt:4}}>
+                    Choose File
+                    <input hidden accept="text/csv/*" multiple type="file" onChange={handleFileSelect}/>
+                </Button>
+                <div className="file-name">
+                    {selectedFile && selectedFile.name}
+                </div>
+                <Button type="submit"  variant="outlined" startIcon={<UploadIcon />} disabled={!selectedFile} sx={{mt:4}}>
+                    Upload
+                </Button>
             </form>
             <Stack sx={{ width: '100%', mt:2}} spacing={2}>
                 {isError && <Alert severity={"error"}>{message}</Alert>}
