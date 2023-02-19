@@ -2,7 +2,7 @@ import './App.css';
 import Dashboard from "./dashboard/Dashboard";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
-import UploadFile from "./dashboard/UploadFile";
+import UploadFileMain from "./dashboard/UploadFileMain";
 import Login from "./Login";
 
 
@@ -23,9 +23,9 @@ function App() {
                         element={<Dashboard/>}
                     />
                     <Route
-                        path='/uploadFile'
+                        path='/uploadFileMain'
                         exact
-                        element={<UploadFile/>}
+                        element={<UploadFileMain/>}
                     />
                 </Routes>
             </BrowserRouter>

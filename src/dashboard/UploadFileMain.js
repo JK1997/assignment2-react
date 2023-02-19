@@ -14,13 +14,12 @@ import Container from '@mui/material/Container';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import ECommerceTable from "./ECommerceTable";
 import {Fab, Menu, MenuItem} from "@mui/material";
-import {FileUpload} from "@mui/icons-material";
 import ListItems from "./ListItems";
 import JK_Ecommerce_logo from '../assets/shop.png'
 import PersonIcon from '@mui/icons-material/Person';
 import {useNavigate} from "react-router-dom";
+import UploadFile from "./UploadFile";
 
 function Copyright(props) {
     return (
@@ -82,16 +81,7 @@ const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})
 
 const mdTheme = createTheme();
 
-const buttonStyle = {
-    margin: 0,
-    top: 'auto',
-    right: 20,
-    bottom: 20,
-    left: 'auto',
-    position: 'fixed',
-};
-
-function DashboardContent() {
+function UploadFileMainContent() {
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -142,7 +132,7 @@ function DashboardContent() {
                             noWrap
                             sx={{flexGrow: 1, textAlign:'left'}}
                         >
-                            Dashboard
+                            File Upload
                         </Typography>
                         <IconButton color="inherit">
                             <Badge badgeContent={4} color="secondary">
@@ -210,18 +200,14 @@ function DashboardContent() {
                 >
                     <Toolbar/>
                     <Container maxWidth="lg" sx={{mb: 4, mt:2}}>
-                        <ECommerceTable/>
+                        <UploadFile/>
                         <Copyright sx={{pt: 4}}/>
                     </Container>
-                    <Fab variant="extended" size="medium" color="primary" aria-label="add" style={buttonStyle}>
-                        <FileUpload  sx={{ mr: 1 }} />
-                        Upload File
-                    </Fab>
                 </Box>
             </Box>
         </ThemeProvider>
     );
 }
-export default function Dashboard() {
-    return <DashboardContent/>;
+export default function UploadFileMain() {
+    return <UploadFileMainContent/>;
 }

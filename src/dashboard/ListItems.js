@@ -8,6 +8,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import {useNavigate} from "react-router-dom";
 import FileUploadIcon from '@mui/icons-material/FileUpload';
+import Divider from "@mui/material/Divider";
 
 export default function ListItems() {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function ListItems() {
     }
 
     const goToUploadFile = () => {
-        navigate('/uploadFile')
+        navigate('/uploadFileMain')
     }
 
     return (
@@ -28,17 +29,18 @@ export default function ListItems() {
                 </ListItemIcon>
                 <ListItemText primary="Dashboard"/>
             </ListItemButton>
+            <ListItemButton onClick={() => goToUploadFile()}>
+                <ListItemIcon>
+                    <FileUploadIcon/>
+                </ListItemIcon>
+                <ListItemText primary= "File Upload"/>
+            </ListItemButton>
+            <Divider sx={{my: 1}}/>
             <ListItemButton>
                 <ListItemIcon>
                     <ShoppingCartIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Orders"/>
-            </ListItemButton>
-            <ListItemButton onClick={() => goToUploadFile()}>
-                <ListItemIcon>
-                    <FileUploadIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Upload File"/>
             </ListItemButton>
             <ListItemButton>
                 <ListItemIcon>
